@@ -5,7 +5,7 @@ export function HeroSection(){
     return(
         <section className='relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to bg-indigo-100'>
             {/* Main Hero Section  */}
-            <div className='grid md:grid-cols-1 lg:grid-cols-2 gap-12 space-y-10 items-center px-4 pt-20 pb-32'>
+            <div className='grid md:grid-cols-1 lg:grid-cols-2 gap-12 space-y-10 items-center px-4 pt-11 md:pt-20 pb-32'>
 
                 {/* left section */}
                 <div className=''>
