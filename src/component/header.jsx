@@ -25,7 +25,7 @@ export default function Header(){
                     <span className=' font-bold text-xl text-white'>RK</span>
                 </div>
                 <div>
-                    <h1 className='font-bold text-2xl purple-gradient bg-clip-text text-transparent'>RK Mobile Centre</h1>
+                    <h1 className='font-bold text-xl purple-gradient bg-clip-text text-transparent'>RK Mobile Centre</h1>
                     <p className='text-sm font-medium text-gray-600'>Premium Mobile Solutions</p>
                 </div>
             </div>
