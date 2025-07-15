@@ -26,8 +26,8 @@ export function HeroSection(){
                     </div>
 
                     {/* Button section */}
-                    <div className='flex gap-5 mt-8 mb-4 '>
-                        <button className='flex items-center px-12 py-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg text-white outline-none border-none rounded-md'>
+                    <div className='flex flex-col md-flex-row gap-5 mt-8 mb-4 '>
+                        <button className='flex items-center justify-center px-12 py-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg text-white outline-none border-none rounded-md'>
                             Shop Now
                             <ArrowRight className="ml-2 " size={20}/>
                         </button>
