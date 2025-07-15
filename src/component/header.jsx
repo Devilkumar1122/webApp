@@ -20,13 +20,13 @@ export default function Header(){
         {/* header */}
         <div className='flex justify-between items-center gap-4'>
             {/* logo */}
-            <div className='flex mr-10'>
+            <div className='flex mr-5 md:mr-10'>
                 <div className='flex items-center justify-center self-center p-3 purple-gradient mr-3 rounded-xl shadow-lg'>
                     <span className=' font-bold text-xl text-white'>RK</span>
                 </div>
                 <div>
-                    <h1 className='font-bold text-xl md:text-2xl purple-gradient bg-clip-text text-transparent'>RK Mobile Centre</h1>
-                    <p className='text-sm font-medium text-gray-600'>Premium Mobile Solutions</p>
+                    <h1 className='font-bold sm:text-xs md:text-2xl purple-gradient bg-clip-text text-transparent'>RK Mobile Centre</h1>
+                    <p className='text-xs font-medium text-gray-600'>Premium Mobile Solutions</p>
                 </div>
             </div>
             {/* search box */}
@@ -49,12 +49,12 @@ export default function Header(){
                     <User className='hidden md:flex text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.5}/>
                 </button>
                 <button>
-                    <ShoppingCart className='text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.5}/>
+                    <ShoppingCart className='-mr-0.5 text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.5}/>
                 </button>
 
                 {/* mobile menu */}
                 <button className='md:hidden flex' onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                    <Menu className=' text-gray-600 h-10 w-10 p-2.5 hover:bg-gray-100 rounded-md hover:text-purple-500' strokeWidth={1.5}/>
+                    <Menu className='-ml-4 text-gray-600 h-10 w-10 p-2.5  hover:bg-gray-100 rounded-md hover:text-purple-500' strokeWidth={1.5}/>
                 </button>
 
                 {/* conditionally render the mobile menu */}
@@ -64,7 +64,7 @@ export default function Header(){
                     className="fixed inset-0 -left-4 bg-black opacity-80 z-40 md:hidden"
                     onClick={() => setIsMenuOpen(false)}
                 ></div>
-                <div className="fixed h-full top-0 -right-2 bg-white shadow-3xl rounded-xl p-6 w-[300px] z-50 md:hidden transition-all duration-300">
+                <div className="fixed h-full top-0 -right-2 bg-white shadow-3xl rounded-xl p-6 w-4/6 z-50 md:hidden transition-all duration-300">
                     <div className="flex justify-end ">
                             <button onClick={() => setIsMenuOpen(false)} className="text-gray-600  hover:text-purple-500  text-xl font-semibold">
                                 <X className=' border-2 rounded-md border-white hover:border-black' size={25} strokeWidth={1.5} />
