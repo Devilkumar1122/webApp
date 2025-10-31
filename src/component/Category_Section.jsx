@@ -128,8 +128,8 @@ export function ShopCategories(){
                                 <item.icon size={40}/>
                             </div>
                             <div>
-                                <h3 className='font-bold text-xl text-gray-900 mb-2'>{item.name}</h3>
-                                <p className='text-sm text-gray-700 font-medium'>{item.count} Products</p>
+                                <h3 className='font-bold text-sm md:text-xl text-gray-900 mb-2'>{item.name}</h3>
+                                <p className='text-xs md:text-sm text-gray-700 font-medium'>{item.count} Products</p>
                             </div>
                         </div>
                       </Link>

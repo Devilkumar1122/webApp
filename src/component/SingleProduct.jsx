@@ -156,9 +156,9 @@ export default function SingleProduct(){
                             <button className='px-24 py-3 text-2xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 font-semibold text-white rounded-lg'>Buy Now</button>
                         </div>
                         {/* mobile */}
-                        <div className='flex md:hidden gap-3'>
-                            <button onClick={()=>{addToCart(product)}} className='px-20 py-2.5 text-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 font-medium text-white rounded-lg'>Add to Cart</button>
-                            <button className='px-20 py-2.5 text-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 font-medium text-white rounded-lg'>Buy Now</button>
+                        <div className='flex flex-col md:hidden gap-3'>
+                            <button onClick={()=>{addToCart(product)}} className='px-8 py-2 text-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 font-medium text-white rounded-lg'>Add to Cart</button>
+                            <button className='px-8 py-2 text-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 font-medium text-white rounded-lg'>Buy Now</button>
                         </div>
                     </div>
                 </div>

@@ -121,7 +121,7 @@ export function HomeProductCategories(){
                     const badge = badges[index];
                     const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
                     return(
-                      <div key={product.id} className=' group hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 shadow-lg hover:-translate-y-2'>
+                      <div key={product.id} className=' group hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 shadow-lg hover:-translate-y-2 rounded-md'>
                     {/* image div */}
                     <div className='relative overflow-hidden'>
                         <Link to={`/product/${product.id}`}>

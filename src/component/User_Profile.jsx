@@ -4,7 +4,7 @@ import {Settings, ShoppingBag, LogOut} from "lucide-react"
 export function User_Profile(){
     return <>
         <section className='h-full items-center flex justify-center md:px-60 '>
-            <div className='relative h-1/2 w-10/12 border-2 border-gray-200 rounded-lg flex flex-col md:flex-row'>
+            <div className='relative h-96 w-11/12 md:h-1/2 md:w-10/12 border-2 border-gray-200 rounded-lg flex flex-col md:flex-row'>
                 {/* left div */}
                 <div className='mx-10 mt-5 md:my-10 flex flex-col items-center'>
                     <img className='w-20 h-20 md:w-56 md:h-56 rounded-full' src="/profile.png" alt="" />
@@ -13,16 +13,16 @@ export function User_Profile(){
                     </h2>
                 </div>
                 {/* vertical line */}
-                <div className='ml-6 md:mt-6 border-r-2 border-gray-150 h-96'></div>
+                <div className='hidden md:flex ml-6 md:mt-6 border-r-2 border-gray-150 h-96'></div>
                 {/* mid div */}
                 <div className=''>
                     {/* info */}
-                    <div className='px-8 py-4 md:p-12 font-medium text-xl'>
-                        <h2 className='p-2'>Name :- Sumit Kumar</h2>
-                        <h2 className='p-2'>Gender :- Male</h2>
-                        <h2 className='p-2'>E-mail :- sumitkumardevil143@gmail.com</h2>
-                        <h2 className='p-2'>Phone :- 9102992342</h2>
-                        <h2 className='p-2'>Address :- koat bazar sitamarhi, Bihar</h2>
+                    <div className='pl-2 md:px-8 py-4 md:p-12 font-medium text-lg md:text-2xl'>
+                        <h2 className='py-1.5 px-1 md:p-2'>Name :- Sumit Kumar</h2>
+                        <h2 className='py-1.5 px-1 md:p-2'>Gender :- Male</h2>
+                        <h2 className='py-1.5 px-1 md:p-2 '>E-mail :- <span className='text-base md:2xl'>sumitkumardevil143@gmail.com</span></h2>
+                        <h2 className='py-1.5 px-1 md:p-2'>Phone :- 9102992342</h2>
+                        <h2 className='py-1.5 px-1 md:p-2'>Address :- koat bazar sitamarhi, Bihar</h2>
                     </div>
                 </div>
                 {/* right div for laptop */}

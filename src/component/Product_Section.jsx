@@ -114,11 +114,11 @@ export function ProductCategories(){
                     {/* heading component */}
                     <div className='flex items-center justify-between pt-4 md:pt-2.5 pb-8 px-1.5'>
                         <div>
-                            <h2 className="text-2xl font-bold text-slate-900">Mobile Accessories</h2>
-                            <p className="text-slate-600">6 products found</p>
+                            <h2 className="text-md md:text-2xl font-bold text-slate-900">Mobile Accessories</h2>
+                            <p className="text-sm text-slate-600">6 products found</p>
                         </div>
                         <div>
-                            <select className='px-5 py-2 border rounded-md' name="Headingfilter" id="Headingfilter">
+                            <select className='px-0 md:px-5 py-2 border rounded-md' name="Headingfilter" id="Headingfilter">
                                 <option value="Featured">Featured</option>
                                 <option value="newest">Newest First</option>
                                 <option value="price-low">Price: Low to High</option>

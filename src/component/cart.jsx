@@ -3,24 +3,31 @@ import clsx from 'clsx';
 import { Star, ShoppingCart, Heart, Eye } from "lucide-react"
 import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from '../store/cart';
+import { Link } from 'react-router-dom';
+import { favouriteAction } from '../store/favourite';
 export function CartSection(){
     const products = useSelector(state=>state.cart.products);
     const dispatch = useDispatch();
     const deleteProduct = (id)=>{
         dispatch(cartActions.removeFromCart(id))
     }
+    const addToFav = (product)=>{
+        dispatch(favouriteAction.addToFav(product))
+    }
     if (!products.length) {
         return <h2 className="text-center text-2xl pt-96">No products found in cart.</h2>;
     }
     return(
-        <section className='pt-44'>
+        <section className='pt-36 md:pt-44 px-4 pb-4'>
             <div className='flex flex-wrap gap-4 justify-center '>
                 {products.map((product,index)=>{
                     return(
-                    <div key={index} className='h-auto w-96 ml-4 mt-4 border-none rounded-lg group hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 shadow-lg hover:-translate-y-2'>
+                    <div key={index} className='h-auto w-96 md:ml-4 mt-4 border-none rounded-lg group hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 shadow-lg hover:-translate-y-2'>
                             {/* image div */}
                             <div className='relative overflow-hidden'>
-                                <img className='w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500' src="/nothing.avif" alt="" />
+                                <Link to={`/product/${product.id}`}>
+                                    <img className='w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500' src="/nothing.avif" alt="" />
+                                </Link>
                                 <div>
                                     <span className={`absolute top-4 left-4 text-xs border-0 rounded-lg text-white px-3 py-1 font-semibold`}></span>
                                 </div>
@@ -31,9 +38,11 @@ export function CartSection(){
                                 {/* action button */}
                                 <div className='absolute opacity-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 transition-opacity duration-500'>
                                     <button className='mr-2.5 outline-none rounded-md p-3  bg-white'>
-                                        <Eye className="h-4 w-4" />
+                                        <Link to={`/product/${product.id}`}>
+                                            <Eye className="h-4 w-4" />
+                                        </Link>
                                     </button>
-                                    <button className='p-3 outline-none rounded-md bg-white'>
+                                    <button onClick={()=>{addToFav(product)}} className='p-3 outline-none rounded-md bg-white'>
                                         <Heart className={`h-4 w-4  `} />
                                     </button>
                                 </div>
