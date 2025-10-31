@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../App.css'
 import clsx from 'clsx';
-import { Camera, Battery, Shield, Cable, Headphones, Smartphone, Speaker,  Watch} from 'lucide-react';
+import { Camera, Battery, Shield, Cable, Headphones, Smartphone, Speaker,  Watch, Mouse, Keyboard, Tablet, Joystick} from 'lucide-react';
 
 const categories = [
+  
     {
       name: "Phone Cases",
       icon: Shield,
@@ -75,23 +76,48 @@ const categories = [
       bgColor: "bg-teal-50",
       hoverColor: "hover:bg-teal-200",
       href: "/categories/smartwatch",
+    },{
+      name: "Mouse",
+      icon: Mouse,
+      count: "500+",
+      color: "from-blue-400 to-blue-600",
+      bgColor: "bg-blue-50",
+      hoverColor: "hover:bg-blue-200",
+      href: "/categories/mouse",
+    },
+    {
+      name: "Keyboard",
+      icon: Keyboard,
+      count: "300+",
+      color: "from-green-400 to-green-600",
+      bgColor: "bg-green-50",
+      hoverColor: "hover:bg-green-200",
+      href: "/categories/keyboard",
+    },
+    {
+      name: "Tablet",
+      icon: Tablet,
+      count: "200+",
+      color: "from-purple-400 to-purple-600",
+      bgColor: "bg-purple-50",
+      hoverColor: "hover:bg-purple-200",
+      href: "/categories/tablet",
+    },
+    {
+      name: "Game Controller",
+      icon: Joystick,
+      count: "400+",
+      color: "from-orange-400 to-orange-600",
+      bgColor: "bg-orange-50",
+      hoverColor: "hover:bg-orange-200",
+      href: "/categories/game_controller",
     },
   ]
 
 
-export function HomeShopCategories(){
-    return <section className='px-4 py-20'>
+export function ShopCategories(){
+    return <section className='px-4 pt-44 md:pt-48 pb-4'>
         <div>
-            <div className='text-center mb-16'>
-                <h2 className='text-4xl lg:text-5xl font-bold text-gray-900 mb-6'>
-                    Shop by{" "}
-                    <span className='bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'>
-                        Category
-                    </span> 
-                </h2>
-                <p className='text-xl text-gray-600 max-w-3xl mx-auto'>Explore our comprehensive collection of mobile accessories and spare parts for all major brands</p>
-            </div> 
-
             <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6'>
                 {categories.map((item)=>{
                     

@@ -2,11 +2,13 @@ import '../App.css'
 import { Search, ShoppingCart, Menu, Phone, Mail, User, Heart, Icon, X } from 'lucide-react';
 import { Link } from "react-router-dom"
 import { useState } from 'react';
+import { CartSection } from './cart';
+import { useSelector } from 'react-redux';
 
 export default function Header(){
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-    const navigation = [
+    const navigation_laptop = [
         { name: "Home", href: "/" },
         { name: "Products", href: "/products" },
         { name: "Categories", href: "/categories" },
@@ -15,8 +17,21 @@ export default function Header(){
         { name: "Contact", href: "/contact" },
     ];
 
-    return <header className=' p-4 z-50 shadow-lg border-b'>
+    const navigation_mobile = [
+        { name: "Home", href: "/" },
+        { name: "Products", href: "/products" },
+        { name: "Categories", href: "/categories" },
+        { name: "Brands", href: "/brands" },
+        { name: "Services", href: "/services" },
+        { name: "Contact", href: "/contact" },
+        { name: "Favourite", href: "/favourite" },
+        { name: "Profile", href: "/profile" },
+    ];
 
+    const cartCount = useSelector(state => state.cart.count);
+
+    return <header className='fixed top-0  bg-white w-full opacity-100 p-4 z-50 shadow-xl border-b border-gray-300'>
+        
         {/* header */}
         <div className='flex justify-between items-center gap-4'>
             {/* logo */}
@@ -34,7 +49,7 @@ export default function Header(){
                 <div className='w-full group '>
                     <Search className='cursor-pointer text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 group-hover:text-purple-500 group-focus-within:text-purple-500' />
                     <input type="text"placeholder="Search for mobile accessories, cases, chargers..." className='pl-12 pr-4 py-3 w-full text-lg rounded-xl border-2 outline-none hover:placeholder:text-purple-500 hover:border-purple-500 focus:text-purple-500 focus:border-purple-500 '/>
-                    <button className='absolute right-1 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-700 group-hover:to-blue-700 py-2.5 px-3.5 rounded-xl'>
+                    <button className='absolute right-1.5 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-700 group-hover:to-blue-700 py-2.5 px-4 rounded-xl'>
                         <span className=' text-white text-xl'>Search</span>
                     </button>
                 </div>
@@ -43,13 +58,22 @@ export default function Header(){
             {/* action button */}
             <div className='flex items-center space-x-3'>
                 <button>
-                    <Heart className='hidden md:flex text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.5}/>
+                    <Link to='/favourite'>
+                        <Heart className='hidden md:flex text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.25}/>
+                    </Link>
                 </button>
                 <button>
-                    <User className='hidden md:flex text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.5}/>
+                    <Link to="/profile">
+                        <User className='hidden md:flex text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.25}/>
+                    </Link>
                 </button>
-                <button>
-                    <ShoppingCart className='-mr-0.5 text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.5}/>
+                <button className='relative'>
+                    <Link to="/cart">
+                    <ShoppingCart className='mr-3.5 text-gray-600 h-10 w-10 p-2.5 hover:bg-purple-50 rounded-md hover:text-purple-500' strokeWidth={1.25}/>  
+                    {cartCount > 0 && (
+                        <span className="absolute -top-0 right-2 h-5 w-5 rounded-full flex items-center justify-center text-xs text-white bg-gradient-to-r from-purple-600 to-blue-600">{cartCount}</span>
+                    )}
+                    </Link>
                 </button>
 
                 {/* mobile menu */}
@@ -71,7 +95,7 @@ export default function Header(){
                             </button>
                         </div>
                     <div className="flex flex-col space-y-6">
-                    {navigation.map((item) => (
+                    {navigation_mobile.map((item) => (
                         <Link
                         key={item.name}
                         to={item.href}
@@ -90,25 +114,26 @@ export default function Header(){
             
         </div>
 
-        {/* nabvigation links */}
+        {/* nabvigation links laptop*/}
         <div className='hidden md:flex mt-6 space-x-8 border-t pt-4'>
             
-            {navigation.map((item)=>{
+            {navigation_laptop.map((item)=>{
                 return(
                 <Link key={item.name} to={item.href} className="relative group text-gray-700  hover:text-purple-600 font-medium text-lg"> 
                     {item.name}
                     <span className='absolute h-0.5 w-0 left-0 -bottom-1 bg-gradient-to-r from-purple-500 to to-blue-600 group-hover:w-full transition-all duration-300'></span>
                 </Link>
             )
-            })}            
+            })}     
+
         </div>
 
         {/*mobile search box */}
             <div className='md:hidden max-w-2xl mt-4 '>
-                <div className='w-full group '>
-                    <Search className='cursor-pointer text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 group-hover:text-purple-500 group-focus-within:text-purple-500' />
+                <div className='w-full flex gap-2 flex-nowrap group '>
+                    <Search className='cursor-pointer text-gray-400 absolute left-8 top-[73.5%] transform -translate-y-1/2 h-5 w-5 group-hover:text-purple-500 group-focus-within:text-purple-500' />
                     <input type="text"placeholder="Search for mobile accessories, cases, chargers..." className='pl-12 pr-4 py-2 w-full text-lg rounded-xl border-2 outline-none hover:placeholder:text-purple-500 hover:border-purple-500 focus:text-purple-500 focus:border-purple-500 '/>
-                    <button className='absolute right-1 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-700 group-hover:to-blue-700 py-2.5 px-3.5 rounded-xl'>
+                    <button className='bg-gradient-to-r from-purple-600 to-blue-600 group-hover:from-purple-700 group-hover:to-blue-700 py-2.5 px-3.5 rounded-xl'>
                         <span className=' text-white text-xl'>Search</span>
                     </button>
                 </div>

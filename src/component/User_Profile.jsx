@@ -1,0 +1,44 @@
+import '../App.css';
+import {Settings, ShoppingBag, LogOut} from "lucide-react"
+
+export function User_Profile(){
+    return <>
+        <section className='h-full items-center flex justify-center md:px-60 '>
+            <div className='relative h-1/2 w-10/12 border-2 border-gray-200 rounded-lg flex flex-col md:flex-row'>
+                {/* left div */}
+                <div className='mx-10 mt-5 md:my-10 flex flex-col items-center'>
+                    <img className='w-20 h-20 md:w-56 md:h-56 rounded-full' src="/profile.png" alt="" />
+                    <h2 className='mt-4 text-2xl md:text-3xl'>
+                        Sumit Kumar
+                    </h2>
+                </div>
+                {/* vertical line */}
+                <div className='ml-6 md:mt-6 border-r-2 border-gray-150 h-96'></div>
+                {/* mid div */}
+                <div className=''>
+                    {/* info */}
+                    <div className='px-8 py-4 md:p-12 font-medium text-xl'>
+                        <h2 className='p-2'>Name :- Sumit Kumar</h2>
+                        <h2 className='p-2'>Gender :- Male</h2>
+                        <h2 className='p-2'>E-mail :- sumitkumardevil143@gmail.com</h2>
+                        <h2 className='p-2'>Phone :- 9102992342</h2>
+                        <h2 className='p-2'>Address :- koat bazar sitamarhi, Bihar</h2>
+                    </div>
+                </div>
+                {/* right div for laptop */}
+                <div className='hidden md:flex flex-col items-end ml-auto'>
+                    <Settings className='mt-4 mr-4 cursor-pointer hover:rotate-180 transition-transform duration-500 ease-in-out' size={32} strokeWidth={1.25} />
+                    <ShoppingBag className='mt-4 mr-4 cursor-pointer transform transition-transform duration-300 ease-in-out hover:-translate-y-2' size={32} strokeWidth={1.25} />
+                    <p className='mt-auto mb-4 mr-2 font-medium text-blue-500 text-2xl p-2 cursor-pointer hover:underline'>Sign out</p>
+                </div>
+
+                {/* right div for mobile */}
+                <div className='absolute right-0 md:hidden flex-col items-end ml-auto'>
+                    <Settings className='mt-3 mr-2 cursor-pointer hover:rotate-180 transition-transform duration-500 ease-in-out' size={28} strokeWidth={1.25} />
+                    <ShoppingBag className='mt-3.5 mr-2 cursor-pointer transform transition-transform duration-300 ease-in-out hover:-translate-y-2' size={28} strokeWidth={1.25} />
+                    <LogOut className='mt-3.5 mr-2 cursor-pointer transform transition-transform duration-300 ease-in-out hover:translate-x-1 hover:text-blue-500' size={28} strokeWidth={1.25} />
+                </div> 
+            </div>
+        </section>
+    </>
+}

@@ -2,6 +2,9 @@ import '../App.css'
 import { Star, ShoppingCart, Heart, Eye } from "lucide-react"
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../store/cart';
+import { favouriteAction } from '../store/favourite';
 
 const products = [
 {
@@ -63,7 +66,7 @@ const products = [
     originalPrice: 4999,
     rating: 4.5,
     reviews: 203,
-    image: "/placeholder.svg?height=300&width=300&text=Power Bank",
+    image: "/nothing.avif?height=300&width=600&text=Power Bank",
     category: "Power Banks",
     brand: "Anker",
     inStock: true,
@@ -94,6 +97,13 @@ const badges = [
     ]
 
 export function HomeProductCategories(){
+    const dispatch = useDispatch();
+    const addToCart = (product)=>{
+        dispatch(cartActions.addToCart(product));
+    }
+    const addToFav = (product)=>{
+            dispatch(favouriteAction.addToFav(product));
+        }
     return <section className='px-4 py-20 bg-gradient-to-br from-gray-50 to-blue-50'>
         <div>
             <div className='text-center mb-16'>
@@ -114,7 +124,9 @@ export function HomeProductCategories(){
                       <div key={product.id} className=' group hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 shadow-lg hover:-translate-y-2'>
                     {/* image div */}
                     <div className='relative overflow-hidden'>
-                        <img className='w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500' src="/placeholder.svg" alt="" />
+                        <Link to={`/product/${product.id}`}>
+                            <img className='w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500' src="/nothing.avif" alt="" />
+                        </Link>
                         <div>
                             <span className={`absolute top-4 left-4 text-xs border-0 rounded-lg text-white ${badge.color} px-3 py-1 font-semibold`}>{badge.text}</span>
                         </div>
@@ -125,9 +137,11 @@ export function HomeProductCategories(){
                         {/* action button */}
                         <div className='absolute opacity-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 transition-opacity duration-500'>
                             <button className='mr-2.5 outline-none rounded-md p-3  bg-white'>
-                                <Eye className="h-4 w-4" />
+                                <Link to={`/product/${product.id}`}>
+                                    <Eye className="h-4 w-4" />
+                                </Link>
                             </button>
-                            <button className='p-3 outline-none rounded-md bg-white'>
+                            <button onClick={()=>addToFav(product)} className='p-3 outline-none rounded-md bg-white'>
                                 <Heart className={`h-4 w-4  `} />
                             </button>
                         </div>
@@ -170,7 +184,7 @@ export function HomeProductCategories(){
                                 </span>
                             </div>
                         </div>
-                        <button className='flex items-center justify-center w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-2 text-lg rounded-lg'>
+                        <button onClick={()=>{addToCart(product)}} className='flex items-center justify-center w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-2 text-lg rounded-lg'>
                             <ShoppingCart className="h-5 w-5 mr-2" />
                             <span>Add to Cart</span>
                         </button>

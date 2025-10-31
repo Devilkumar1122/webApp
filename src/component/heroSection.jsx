@@ -3,9 +3,9 @@ import { Star, ArrowRight, Shield, Truck, Headphones } from 'lucide-react';
 
 export function HeroSection(){
     return(
-        <section className='relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to bg-indigo-100'>
+        <section className='mt-32 px-1.5 md:px-3.5 relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to bg-indigo-100'>
             {/* Main Hero Section  */}
-            <div className='grid md:grid-cols-1 lg:grid-cols-2 gap-12 space-y-10 items-center px-4 pt-11 md:pt-20 pb-32'>
+            <div className='grid md:grid-cols-1 lg:grid-cols-2 gap-12 space-y-10 items-center px-4 pt-11 md:pt-20 pb-24'>
 
                 {/* left section */}
                 <div className=''>
@@ -73,7 +73,7 @@ export function HeroSection(){
                     
                     {/* img */}
                     <div className='relative bg-white rounded-3xl shadow-2xl p-7'>
-                        <img className='rounded-3xl ' src="/placeholder.svg"  alt="nothing" />
+                        <img className='rounded-3xl ' src="/nothing.avif"  alt="nothing" />
                     </div>
                     
                     {/* upper box */}
